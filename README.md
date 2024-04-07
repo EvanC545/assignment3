@@ -1,2 +1,3 @@
 # assignment3
-A JavaScript project
+CSE 4283 / 6283 Software Testing and QA - Assignment 3
+
