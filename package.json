@@ -25,6 +25,8 @@
     "redux": "^5.0.1"
   },
   "devDependencies": {
+    "coveralls": "^3.1.1",
+    "coveralls-next": "^4.2.1",
     "eslint": "^9.0.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.29.1",
