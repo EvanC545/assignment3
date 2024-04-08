@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
-import { calculateBMI, getBMICategory } from './bmiCalculator';
+const { calculateBMI, getBMICategory } = require('./bmiCalculator.js');
 import './index.css';
 import App from './App';
 import counter from './counter';
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const weightUnitValue = weightUnit.value;
 
     // calculate BMI
-    const bmi = calculateBMI(heightValue, weightValue);
+    const bmi = calculateBMI(heightValue, weightValue, heightUnitValue, weightUnitValue);
     let category = getBMICategory(bmi);
 
     // display the result

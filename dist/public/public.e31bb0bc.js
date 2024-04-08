@@ -29230,29 +29230,7 @@ function isAction(action) {
   return isPlainObject(action) && "type" in action && typeof action.type === "string";
 }
 },{}],"bmiCalculator.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.calculateBMI = calculateBMI;
-exports.getBMICategory = getBMICategory;
-function calculateBMI(height, weight) {
-  // get units
-  var heightUnit = document.getElementById('heightUnit').value;
-  var weightUnit = document.getElementById('weightUnit').value;
-
-  // get the calculate button
-  var calculateButton = document.getElementById('calculateButton');
-  var weightInput = document.getElementById('weight');
-  var heightInput = document.getElementById('height');
-
-  // validate inputs
-  // if (height === '' || weight === '') {
-  //     calculateButton.disabled = true;
-  //     return 0;
-  // }
-
+function calculateBMI(height, weight, heightUnit, weightUnit) {
   // convert height to meters
   var heightCm;
   if (heightUnit === 'in') {
@@ -29297,6 +29275,10 @@ function getBMICategory(bmi) {
     return 'Obesity';
   }
 }
+module.exports = {
+  calculateBMI: calculateBMI,
+  getBMICategory: getBMICategory
+};
 },{}],"../../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 function getBundleURLCached() {
@@ -29429,11 +29411,13 @@ var _default = exports.default = function _default() {
 var _react = _interopRequireDefault(require("react"));
 var _reactDom = _interopRequireDefault(require("react-dom"));
 var _redux = require("redux");
-var _bmiCalculator = require("./bmiCalculator");
 require("./index.css");
 var _App = _interopRequireDefault(require("./App"));
 var _counter = _interopRequireDefault(require("./counter"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _require = require('./bmiCalculator.js'),
+  calculateBMI = _require.calculateBMI,
+  getBMICategory = _require.getBMICategory;
 // Get the input values
 var height = document.getElementById('height');
 var weight = document.getElementById('weight');
@@ -29450,15 +29434,15 @@ document.addEventListener('DOMContentLoaded', function () {
     var weightUnitValue = weightUnit.value;
 
     // calculate BMI
-    var bmi = (0, _bmiCalculator.calculateBMI)(heightValue, weightValue);
-    var category = (0, _bmiCalculator.getBMICategory)(bmi);
+    var bmi = calculateBMI(heightValue, weightValue, heightUnitValue, weightUnitValue);
+    var category = getBMICategory(bmi);
 
     // display the result
     bmiValue.value = bmi.toFixed(2);
     bmiCategory.value = category;
   });
 });
-},{"react":"../../node_modules/react/index.js","react-dom":"../../node_modules/react-dom/index.js","redux":"../../node_modules/redux/dist/redux.legacy-esm.js","./bmiCalculator":"bmiCalculator.js","./index.css":"index.css","./App":"App.js","./counter":"counter.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-dom":"../../node_modules/react-dom/index.js","redux":"../../node_modules/redux/dist/redux.legacy-esm.js","./bmiCalculator.js":"bmiCalculator.js","./index.css":"index.css","./App":"App.js","./counter":"counter.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;

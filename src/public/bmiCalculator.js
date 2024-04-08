@@ -1,20 +1,6 @@
 
-export function calculateBMI(height, weight) {
-    // get units
-    const heightUnit = document.getElementById('heightUnit').value;
-    const weightUnit = document.getElementById('weightUnit').value;
+function calculateBMI(height, weight, heightUnit, weightUnit) {
 
-    // get the calculate button
-    const calculateButton = document.getElementById('calculateButton');
-    const weightInput = document.getElementById('weight');
-    const heightInput = document.getElementById('height');
-
-    // validate inputs
-    // if (height === '' || weight === '') {
-    //     calculateButton.disabled = true;
-    //     return 0;
-    // }
-    
     // convert height to meters
     let heightCm;
     if (heightUnit === 'in') {
@@ -49,7 +35,7 @@ function inchesToCm(inches) {
 function poundsToKg(pounds) {
     return pounds * 0.453592;
 }
-export function getBMICategory(bmi) {
+function getBMICategory(bmi) {
     if (bmi < 18.5) {
         return 'Underweight';
     } else if (bmi < 24.9) {
@@ -60,3 +46,5 @@ export function getBMICategory(bmi) {
         return 'Obesity';
     }
 }
+
+module.exports = { calculateBMI, getBMICategory };
