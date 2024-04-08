@@ -16,6 +16,8 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+      - name: run tests with coverage
+        run: npm run test:coverage
       - name: Coveralls GitHub Action
         uses: coverallsapp/github-action@v1.1.2
         with:
