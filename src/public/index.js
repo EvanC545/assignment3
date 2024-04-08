@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const weightUnitValue = weightUnit.value;
 
     // calculate BMI
-    const bmi = calculateBMI(heightValue, weightValue, heightUnitValue, weightUnitValue);
+    const bmi = calculateBMI(heightValue, weightValue);
     let category = getBMICategory(bmi);
 
     // display the result

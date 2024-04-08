@@ -29450,7 +29450,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var weightUnitValue = weightUnit.value;
 
     // calculate BMI
-    var bmi = (0, _bmiCalculator.calculateBMI)(heightValue, weightValue, heightUnitValue, weightUnitValue);
+    var bmi = (0, _bmiCalculator.calculateBMI)(heightValue, weightValue);
     var category = (0, _bmiCalculator.getBMICategory)(bmi);
 
     // display the result
@@ -29483,7 +29483,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61091" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61771" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
